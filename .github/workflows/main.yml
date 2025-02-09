@@ -8,12 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: fabasoad/setup-cobol-action@v1
+
       - uses: actions/cache@v4
         with: 
-          fail-on-cache-hit: false
-          path: /usr/bin/cobc
-          key: cobol-${{ runner.os }}-${{ hashFiles('**/cobc') }}
+          fail-on-cache-miss: false
+          path: /usr/bin/
+          key: ${{ runner.os }}-cobc-${{ hashFiles('cobc') }}
           
       - name: Run script
         run: |
