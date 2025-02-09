@@ -1,4 +1,4 @@
-name: Setup COBOL
+name: Build
 
 on: push
 
@@ -9,6 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: fabasoad/setup-cobol-action@v1
+      - uses: actions/cache@v4
+        with: 
+          path: /usr/bin/cobc
+          
       - name: Run script
         run: |
           cobc -x helloworld.cob
