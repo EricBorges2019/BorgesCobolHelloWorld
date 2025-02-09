@@ -17,8 +17,8 @@ jobs:
           path: /usr/bin/
           key: ${{ runner.os }}-cobc-${{ hashFiles('cobc') }}
 
-          if: steps.cache.outputs.cache-hit != 'true'
-          uses: fabasoad/setup-cobol-action@v1
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: fabasoad/setup-cobol-action@v1
 
           
           
